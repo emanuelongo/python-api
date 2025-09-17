@@ -1,11 +1,12 @@
-FROM python:3.7.11-slim
-
+#ESTA ES L IMÁGEN EN DOCKER HUB
+FROM python:3.7.11-slim 
+#ACÁ ES DONDE SE GUARDARÁ LA CREACIÓN DE LA IMAGEN	
 WORKDIR  /python-api
-
+#COPIAMOS EL ARCHIVO DE REQUERIMIENTOS
 COPY requirements.txt requirements.txt
-
+#INSTALAMOS LOS REQUERIMIENTOS
 RUN pip install -r requirements.txt
-
+#COPIAMOS TODO EL CÓDIGO
 COPY . .
-
+#EXPOSE EL PUERTO Y TODA LA DEFINICÓN DE LA CREACIÓN DE LA IMAGEN
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
